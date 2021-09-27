@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    {{ with $stylesheets := resources.Match "css/*.css" }}
+    {{ range $stylesheets }}
+    {{ $stylesheet := . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}">
+    {{ end }}
+    {{ end }}
+    {{ block "additional_stylesheets" . }}{{ end }}
+</head>
+
+<body>
+    {{ block "content" . }}{{ end }}
+</body>
+
+</html>
