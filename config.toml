@@ -1,3 +1,6 @@
 baseURL = 'http://example.org/'
 languageCode = 'de-de'
 title = 'Blog'
+
+[permalinks]
+posts = '/:year/:month/:slug/'
