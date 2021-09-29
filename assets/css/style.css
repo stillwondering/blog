@@ -1,15 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Unica+One&display=swap');
 
 :root {
-    --max-width: 80rem;
+    --max-width: 60rem;
 
     --fs-400: 1rem;
     --fs-500: 1.125rem;
     --fs-600: 1.375rem;
     --fs-700: 2rem;
 
-    --ff-primary: 'Libre Baskerville', serif;
-    --ff-heading: 'Fjalla One', cursive;
+    --fw-primary: 300;
+    --fw-heading: 700;
+
+    /*--ff-primary: 'Libre Baskerville', serif;
+    --ff-heading: 'Fjalla One', cursive;*/
+
+    --ff-primary: 'Alice', serif;
+    --ff-heading: 'Playfair Display', serif;
+
+    /*--ff-primary: 'Crimson Text', serif;
+    --ff-heading: 'Unica One', cursive;
+    --fw-heading: 400;*/
+
+    --clr-neutral-100: #ffffff;
+    --clr-neutral-900: #041329;
+
+    --clr-primary-600: #114B5F;
 }
 
 * {
@@ -22,10 +39,15 @@
  * Typography
  */
 body {
+    height: 100vh;
     font-size: 1rem;
     font-family: var(--ff-primary);
-    font-weight: 300;
+    font-weight: var(--fw-primary);
     line-height: 1.6;
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-neutral-900);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 h1 {
@@ -46,27 +68,106 @@ h4 {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--ff-heading);
-    font-weight: 700;
+    font-weight: var(--fw-heading);
     line-height: 1;
+    margin-bottom: 1rem;
 }
 
 h1, h2, h3, h4, h5, h6, p {
     max-width: 70ch;
+}
+
+.content p {
     margin-bottom: 1rem;
+}
+
+.content h2,
+.content h3 {
+    margin-top: var(--fs-600);
+}
+
+.text-center {
+    text-align: center;
 }
 
 /* ----------------------------------------------
  * Layout
  * ----------------------------------------------
  */
+.shadowed {
+    /*box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;*/ /* Nr. 6 */
+    /*box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;*/ /* Nr. 4 */
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; /* Nr. 33 */
+}
+.brand {
+    margin-bottom: 0;
+    font-family: var(--ff-primary);
+    font-size: 1.125rem;
+    text-decoration: none;
+    color: var(--clr-neutral-900);
+}
+
+.brand:focus,
+.brand:hover {
+    text-decoration: underline;
+}
+
+header {
+    padding: 1rem 0;
+}
+
 main,
 section {
-    padding: 3rem 0;
+    padding: 1rem 0;
 }
 
 .container {
     margin-inline: auto;
     width: min(90%, var(--max-width));
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.split {
+    display: flex;
+    flex-direction: column;
+}
+
+.split > * {
+    margin-bottom: 2em;
+}
+
+@media (min-width: 45em) {
+    :root {
+        --fs-400: 1.125rem;
+        --fs-500: 1.375rem;
+        --fs-600: 2.75rem;
+        --fs-700: 4.125rem;
+    }
+
+    main,
+    section {
+        padding: 3rem 0;
+    }
+    
+    .split {
+        flex-direction: row;
+    }
+
+    .split > * {
+        flex-basis: 100%;
+    }
+
+    .split > * + * {
+        margin-left: 2em;
+    }
+
+    .split-one-third {
+        flex-basis: 33%;
+    }
 }
 
 /* -----------------------------------------------------------------------------
@@ -75,4 +176,42 @@ section {
  */
 .post-meta {
     font-style: italic;
+}
+
+.bg-dark {
+    background-color: var(--clr-neutral-900);
+    color: var(--clr-neutral-100);
+}
+
+ul,
+ol {
+    /*list-style-position: inside;*/
+    margin-left: 1rem;
+}
+
+li {
+    margin-bottom: 1rem;
+    max-width: 70ch;
+}
+
+blockquote {
+    font-style: italic;
+    margin: 2rem 0;
+    padding-left: 10px;
+    border-left: 2px solid #dddddd;
+}
+
+strong {
+    font-weight: 700;
+}
+
+@media (min-width: 45em) {
+    /*blockquote {
+        margin: 2rem 2rem;
+        border-left: none;
+    }
+
+    blockquote p {
+        width: 50ch;
+    }*/
 }

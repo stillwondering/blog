@@ -1,6 +1,6 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://feuer-und-bits.de/'
 languageCode = 'de-de'
-title = 'Blog'
+title = 'feuer & bits'
 
 [permalinks]
 posts = '/:year/:month/:slug/'
