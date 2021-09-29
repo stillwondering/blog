@@ -1,15 +1,17 @@
 {{ define "title" }}{{ .Title }} &bullet; {{ $.Site.Title }}{{ end }}
 
 {{ define "content" }}
-<div class="container">
-    <article class="post">
-        <header>
-            <h1 class="post-title">{{ .Title }}</h1>
-            <p class="post-meta">{{ .PublishDate | time.Format "02.01.2006" }} &infin; {{ .Params.Author }}</p>
-        </header>
-        <section class="post-content content">
-            {{ .Content }}
-        </section>
-    </article>
-</div>
+<main>
+    <div class="container">
+        <article class="post">
+            <header>
+                <h1 class="post-title">{{ .Title }}</h1>
+                <p class="post-meta">{{ .PublishDate | time.Format "02.01.2006" }} &infin; {{ .Params.Author }}</p>
+            </header>
+            <section class="post-content content">
+                {{ .Content }}
+            </section>
+        </article>
+    </div>
+</main>
 {{ end }}
